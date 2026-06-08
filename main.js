@@ -224,7 +224,7 @@ resetButton.addEventListener('click', () => {
     'Vamos despoluir o rio?';
 
   overlay.querySelector('.overlay-intro').textContent =
-    'Clique nos resíduos que aparecem na água para limpá-la.';
+    'Clique nos resíduos que aparecem na água para limpá\\-la.';
 
   gameInterval = setInterval(
     spawnTrash,
