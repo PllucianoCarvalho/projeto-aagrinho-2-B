@@ -75,6 +75,11 @@ let floodCompleted = false;
 let score = 0;
 let gameInterval;
 
+function startGame() {
+  if (gameInterval) return;
+  gameInterval = setInterval(spawnTrash, 800);
+}
+
 const material = new THREE.ShaderMaterial({
   transparent: true,
   uniforms,
@@ -224,12 +229,9 @@ resetButton.addEventListener('click', () => {
     'Vamos despoluir o rio?';
 
   overlay.querySelector('.overlay-intro').textContent =
-    'Clique nos resíduos que aparecem na água para limpá\\-la.';
+    'Clique nos resíduos que aparecem na água para limpá-la.';
 
-  gameInterval = setInterval(
-    spawnTrash,
-    800
-  );
+  startGame();
 
 });
 
@@ -247,6 +249,9 @@ const trashItems = [
   '🗑️',
   '🛢️'
 ];
+
+startGame();
+
 function spawnTrash() {
 
   const trash =
